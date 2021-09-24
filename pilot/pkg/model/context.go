@@ -465,6 +465,8 @@ type Node struct {
 type BootstrapNodeMetadata struct {
 	NodeMetadata
 
+	KubernetesNodeName string `json:"KUBERNETES_NODE_NAME,omitempty"`
+
 	// InstanceName is the short name for the workload instance (ex: pod name)
 	// replaces POD_NAME
 	InstanceName string `json:"NAME,omitempty"`
