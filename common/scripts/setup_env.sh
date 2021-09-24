@@ -37,7 +37,7 @@ elif [[ ${LOCAL_ARCH} == aarch64* ]]; then
 elif [[ ${LOCAL_ARCH} == armv* ]]; then
     export TARGET_ARCH=arm
 elif [[ ${LOCAL_ARCH} == s390x ]]; then
-￼    export TARGET_ARCH=s390x
+     export TARGET_ARCH=s390x
 elif [[ ${LOCAL_ARCH} == ppc64le ]]; then
     export TARGET_ARCH=ppc64le
 else
@@ -82,7 +82,7 @@ export TARGET_OUT_LINUX="${TARGET_OUT_LINUX:-$(pwd)/out/linux_${TARGET_ARCH}}"
 export CONTAINER_TARGET_OUT="${CONTAINER_TARGET_OUT:-/work/out/${TARGET_OS}_${TARGET_ARCH}}"
 export CONTAINER_TARGET_OUT_LINUX="${CONTAINER_TARGET_OUT_LINUX:-/work/out/linux_${TARGET_ARCH}}"
 
-export IMG="${IMG:-gcr.io/istio-testing/${IMAGE_NAME}:${IMAGE_VERSION}}"
+export IMG="${IMG:-registry.cn-hangzhou.aliyuncs.com/louhwz/istio-testing_build-tools:latest}"
 
 export CONTAINER_CLI="${CONTAINER_CLI:-docker}"
 

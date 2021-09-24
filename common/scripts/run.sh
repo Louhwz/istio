@@ -41,6 +41,13 @@ read -ra DOCKER_RUN_OPTIONS <<< "${DOCKER_RUN_OPTIONS:-}"
 
 [[ -t 1 ]] && DOCKER_RUN_OPTIONS+=("-it")
 
+echo "${IMG}"
+echo "${UID}:${DOCKER_GID}"
+echo "${DOCKER_SOCKET_MOUNT:--v /var/run/docker.sock:/var/run/docker.sock}"
+echo "${CONDITIONAL_HOST_MOUNTS}"
+echo "$@"
+echo ${MOUNT_SOURCE}
+
 # $CONTAINER_OPTIONS becomes an empty arg when quoted, so SC2086 is disabled for the
 # following command only
 # shellcheck disable=SC2086
