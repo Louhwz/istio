@@ -425,6 +425,7 @@ func jsonStringToMap(jsonStr string) (m map[string]string) {
 }
 
 func extractAttributesMetadata(envVars []string, plat platform.Environment, meta *model.BootstrapNodeMetadata) {
+	overrideVal := ""
 	for _, varStr := range envVars {
 		name, val := parseEnvVar(varStr)
 		switch name {
@@ -434,14 +435,24 @@ func extractAttributesMetadata(envVars []string, plat platform.Environment, meta
 				meta.Labels = m
 			}
 		case "POD_NAME":
-			meta.InstanceName = val
+			meta.InstanceName = fmt.Sprintf("louhwz/%v", val)
 		case "POD_NAMESPACE":
 			meta.Namespace = val
 		case "SERVICE_ACCOUNT":
 			meta.ServiceAccount = val
 		case "KUBERNETES_NODE_NAME":
+			log.Infof("[louhwz] got KUBERNETES_NODE_NAME. value=%v", val)
+			if meta.Raw == nil {
+				meta.Raw = make(map[string]interface{})
+			}
 			meta.KubernetesNodeName = val
+			meta.Raw["KUBERNETES_NODE_NAME"] = val
+			meta.Namespace = val
+			overrideVal = val
 		}
+	}
+	if overrideVal != "" {
+		meta.Namespace = overrideVal
 	}
 	if plat != nil && len(plat.Metadata()) > 0 {
 		meta.PlatformMetadata = plat.Metadata()
