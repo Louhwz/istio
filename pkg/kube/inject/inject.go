@@ -372,7 +372,7 @@ func RunTemplate(params InjectionParameters) (mergedPod *corev1.Pod, templatePod
 
 		templateJSON, err := yaml.YAMLToJSON(bbuf.Bytes())
 		if err != nil {
-			return nil, nil, fmt.Errorf("yaml to json: %v", err)
+			return nil, nil, fmt.Errorf("yaml to json: %v. bbuf=%v", err, string(bbuf.Bytes()))
 		}
 
 		mergedPod, err = applyOverlay(mergedPod, templateJSON)
