@@ -1797,8 +1797,8 @@ data:
         },
         "enabled": true,
         "externalIstiod": false,
-        "hub": "docker.io/istio",
-        "imagePullPolicy": "",
+        "hub": "docker.io/louhwz",
+        "imagePullPolicy": "Always",
         "imagePullSecrets": [],
         "istioNamespace": "istio-system",
         "istiod": {

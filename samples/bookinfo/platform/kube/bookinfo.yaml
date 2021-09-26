@@ -68,6 +68,8 @@ spec:
       labels:
         app: details
         version: v1
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-details
       containers:
@@ -121,6 +123,8 @@ spec:
       labels:
         app: ratings
         version: v1
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-ratings
       containers:
@@ -174,6 +178,8 @@ spec:
       labels:
         app: reviews
         version: v1
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-reviews
       containers:
@@ -216,6 +222,8 @@ spec:
       labels:
         app: reviews
         version: v2
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-reviews
       containers:
@@ -258,6 +266,8 @@ spec:
       labels:
         app: reviews
         version: v3
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-reviews
       containers:
@@ -324,6 +334,8 @@ spec:
       labels:
         app: productpage
         version: v1
+      annotations:
+        sidecar.istio.io/extraStatTags: posta,posta_two,kubernetes_node_name
     spec:
       serviceAccountName: bookinfo-productpage
       containers:
