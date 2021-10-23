@@ -470,6 +470,7 @@ type BootstrapNodeMetadata struct {
 // The JSON field names should never change, as they are needed for backward compatibility with older proxies
 // nolint: maligned
 type NodeMetadata struct {
+	KubernetesNodeName string `json:"KUBERNETES_NODE_NAME,omitempty"`
 	// ProxyConfig defines the proxy config specified for a proxy.
 	// Note that this setting may be configured different for each proxy, due user overrides
 	// or from different versions of proxies connecting. While Pilot has access to the meshConfig.defaultConfig,

@@ -406,6 +406,9 @@ func extractAttributesMetadata(envVars []string, plat platform.Environment, meta
 			meta.Namespace = val
 		case "SERVICE_ACCOUNT":
 			meta.ServiceAccount = val
+		case "KUBERNETES_NODE_NAME":
+			log.Infof("[louhwz] got KUBERNETES_NODE_NAME. value=%v", val)
+			meta.KubernetesNodeName = val
 		}
 	}
 	if plat != nil && len(plat.Metadata()) > 0 {
